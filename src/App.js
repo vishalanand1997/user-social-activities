@@ -8,21 +8,23 @@ import {
 import Login from "./components/Login/Login";
 import News from "./components/News/News";
 import SignUp from "./components/Signup/SignUp";
-
+import { store } from "./store";
 export default function App() {
+  console.log("Store", store.getState());
   return (
-    <Router>
-      <Switch>
-        <Route path="/news">
-          <News />
-        </Route>
-        <Route path="/signUp">
-          <SignUp />
-        </Route>
-        <Route path="/" exact>
-          <Login />
-        </Route>
-      </Switch>
-    </Router>
+      <Router>
+        <Switch>
+          <Route path="/news">
+            <News />
+          </Route>
+          <Route path="/signUp">
+            <SignUp />
+          </Route>
+          <Route path="/" exact>
+            <Login />
+          </Route>
+        </Switch>
+      </Router>
+
   );
 }

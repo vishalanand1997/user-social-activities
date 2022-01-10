@@ -160,7 +160,7 @@ export default function Login() {
                 </div>
             </Col>
             <Col md="6" lg="6" sm="12" className="m-auto d-flex justify-content-center">
-                <img src={SignupImg} height={500} width={690} className="img-responsive center-block" />
+                <img src={SignupImg} alt="SignUpImage" height={500} width={690} className="img-responsive center-block" />
             </Col>
         </Row>
     )

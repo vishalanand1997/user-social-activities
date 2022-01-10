@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormGroup, Label, Input, Button, Row, Col } from 'reactstrap'
+import { FormGroup, Label, Button, Row, Col } from 'reactstrap'
 import { LoginImg } from "../../assets/index"
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -12,7 +12,7 @@ export default function Login() {
     return (
         <Row className='m-0 p-0' style={{ height: "100vh", backgroundColor: "#F8F8F8" }}>
             <Col md="8" lg="8" sm="12" className="m-auto d-flex justify-content-center">
-                <img src={LoginImg} height={500} width={690} className="img-responsive center-block" />
+                <img src={LoginImg} alt="LoginImage" height={500} width={690} className="img-responsive center-block" />
             </Col>
             <Col md="4" lg="4" sm="12" style={{ backgroundColor: "white" }} className='d-flex align-items-center'>
                 <div className='m-5'>

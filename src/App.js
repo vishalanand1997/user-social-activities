@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import Login from "./components/Login/Login";
-import News from "./components/Posts/News";
+import News from "./components/News/News";
 import SignUp from "./components/Signup/SignUp";
 
 export default function App() {

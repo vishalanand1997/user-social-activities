@@ -1,0 +1,19 @@
+.card-body {
+    border-bottom: 3px solid #0B5ED7;
+}
+
+.card-posts {
+    margin: 1vw 0;
+}
+
+ul>.active>a {
+    text-decoration: none!important;
+    border-radius: 5rem;
+}
+
+ul>li>a {
+    margin: 0 5px;
+    border: none !important;
+    text-decoration: none!important;
+    outline: none!important;
+}

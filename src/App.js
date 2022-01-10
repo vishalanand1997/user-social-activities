@@ -7,12 +7,16 @@ import {
 import Login from "./components/Login/Login";
 import News from "./components/News/News";
 import SignUp from "./components/Signup/SignUp";
+import SpecificNews from "./components/SpecificNews/SpecificNews";
 import { store } from "./store";
 export default function App() {
   console.log("Store", store.getState());
   return (
       <Router>
         <Switch>
+        <Route path="/specificNews/:id">
+            <SpecificNews />
+          </Route>
           <Route path="/news">
             <News />
           </Route>

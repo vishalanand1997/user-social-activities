@@ -65,9 +65,9 @@ const Nav = () => {
 								}}
 							>
 								<DropdownToggle caret>
-										<FaRegUserCircle size={'2em'} style={{paddingRight: '10px'}}/>
 										{JSON.parse(localStorage.getItem('userDetails')).fname}{' '}
 										{JSON.parse(localStorage.getItem('userDetails')).lname}
+										<FaRegUserCircle size={'2em'} style={{paddingLeft: '10px'}}/>
 								</DropdownToggle>
 								<DropdownMenu className="mt-2">
 									<DropdownItem

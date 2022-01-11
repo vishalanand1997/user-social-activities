@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 const PublicRoute = ({ component: Component, restricted, ...rest }) => {
 	const isLogin = () => {
-		if (localStorage.getItem('sessionToken')) return true;
+		if (localStorage.getItem('sessionToken') && localStorage.getItem('userDetails')) return true;
 		else return false;
 	};
 	return (

@@ -3,12 +3,26 @@ import { FormGroup, Label, Button, Row, Col } from 'reactstrap'
 import { LoginImg } from "../../assets/index"
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import { useHistory } from 'react-router-dom';
 export default function Login() {
+    const history = useHistory();
+    const selector = useSelector(state => state)
+    console.log("Satteee", selector.LoginChanger);
     const SignInSchema = Yup.object().shape({
         email: Yup.string().required('Email should not be empty'),
         password: Yup.string().min(6, 'Min. length of password is 6').max(12, 'Max. length of password is 12').required('Email should not be empty'),
     });
+    const LoginTheAccount = (val) => {
+        if (selector.LoginChanger.every((values) => values.email == val.email && values.password == val.password)) {
+            history.push("/news")
+        } else {
+            toast.error('Email or password is incorrect', { autoClose: 2000 })
+        }
+    }
     return (
         <Row className='m-0 p-0' style={{ height: "100vh", backgroundColor: "#F8F8F8" }}>
             <Col md="8" lg="8" sm="12" className="m-auto d-flex justify-content-center">
@@ -26,7 +40,7 @@ export default function Login() {
                         }}
                         validationSchema={SignInSchema}
                         onSubmit={values => {
-                            console.log("Values", values);
+                            LoginTheAccount(values)
                         }}
                     >
                         {({ errors, touched }) => (

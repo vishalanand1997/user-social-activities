@@ -9,6 +9,7 @@ import News from "./components/News/News";
 import SignUp from "./components/Signup/SignUp";
 import SpecificNews from "./components/SpecificNews/SpecificNews";
 import { store } from "./store";
+import 'react-toastify/dist/ReactToastify.css';
 export default function App() {
   console.log("Store", store.getState());
   return (

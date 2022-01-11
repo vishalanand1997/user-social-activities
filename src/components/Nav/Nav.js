@@ -40,13 +40,12 @@ const Nav = () => {
 					<div
 						class="collapse navbar-collapse"
 						id="navbarSupportedContent"
-						style={{ backgroundColor: 'red' }}
 					>
 						<ul class="navbar-nav mr-auto flex-grow-2">
 							<li class="nav-item ">
-								{/* <a class="nav-link mr-2" href="#">
-									News
-								</a> */}
+								<a class="nav-link mr-2" href="#">
+									Feed
+								</a>
 							</li>
 						</ul>
 
@@ -55,7 +54,7 @@ const Nav = () => {
 							<input
 								type="text"
 								class="form-control"
-								placeholder="Search for Users and Email"
+								placeholder="Search for user and email"
 								onChange={(event) => setQuery(event.target.value)}
 							/>
 							{query &&

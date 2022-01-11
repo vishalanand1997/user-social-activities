@@ -6,8 +6,11 @@ import * as Yup from 'yup';
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { SignUpFunc } from '../../redux/actions';
+import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
 export default function Login() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const history = useHistory();
     const SignInSchema = Yup.object().shape({
         fname: Yup.string().required('First name should not be empty'),
         lname: Yup.string().required('Last name should not be empty'),
@@ -18,10 +21,8 @@ export default function Login() {
     });
     const SignupHandle = (val) => {
         dispatch(SignUpFunc(val))
-        const selector = useSelector(state => state.LoginChanger)
-        setInterval(() => {
-            console.log("State after selectorn", selector);
-        }, 5000)
+        toast.success("User account is created!")
+        history.push('/')
     }
     return (
         <Row className='m-0 p-0' style={{ height: "100vh", backgroundColor: "#F8F8F8" }}>

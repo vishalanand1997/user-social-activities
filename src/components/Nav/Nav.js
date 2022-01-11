@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Card, CardBody } from 'reactstrap';
-
+import { Card, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import news from '../../news.json';
 import './Nav.scoped.css';
 
 const Nav = () => {
 	const [query, setQuery] = useState('');
 	const history = useHistory();
-
+	const [dropDownOpen, setDropdown] = useState(false)
 	const specificNews = (id) => {
 		console.log('ID', id);
 		history.push(`/specificNews/${id}`);
@@ -61,40 +60,55 @@ const Nav = () => {
 								onChange={(event) => setQuery(event.target.value)}
 							/>
 						</div>
+						<div className="d-flex justify-content-center">
+							<Dropdown isOpen={dropDownOpen} toggle={() => { setDropdown(!dropDownOpen) }}>
+								<DropdownToggle caret>
+									{JSON.parse(localStorage.getItem('userDetails')).fname} {JSON.parse(localStorage.getItem('userDetails')).lname}
+								</DropdownToggle>
+								<DropdownMenu className='mt-2'>
+									<DropdownItem onClick={()=>{
+										localStorage.clear();
+										history.push('/')
+									}}>
+										Logout
+									</DropdownItem>
+								</DropdownMenu>
+							</Dropdown>
+						</div>
 					</div>
 				</nav>
 				<div className='d-flex justify-content-center'>
-				{query.length > 0 ?
-					<Card className='suggestions-news'>
-						{
-							news.filter((post) => {
-								if (query === '') {
-									return post;
-								} else if (
-									query.length &&
-									post.title.toLowerCase().includes(query.toLowerCase())
-								) {
-									console.log("Posts",post);
-									return post;
-								}
-							})
-								.slice(0, 5)
-								.map((post, index) => (
-									<div
-										key={post.id}
-										style={{ cursor: 'pointer' }}
-										onClick={() => {
-											specificNews(post.id);
-										}}
-									>
-										<div>
-											<p>{post.title}</p>
+					{query.length > 0 ?
+						<Card className='suggestions-news'>
+							{
+								news.filter((post) => {
+									if (query === '') {
+										return post;
+									} else if (
+										query.length &&
+										post.title.toLowerCase().includes(query.toLowerCase())
+									) {
+										console.log("Posts", post);
+										return post;
+									}
+								})
+									.slice(0, 5)
+									.map((post, index) => (
+										<div
+											key={post.id}
+											style={{ cursor: 'pointer' }}
+											onClick={() => {
+												specificNews(post.id);
+											}}
+										>
+											<div>
+												<p>{post.title}</p>
+											</div>
 										</div>
-									</div>
-								))}
-					</Card>
-					: null}
-					</div>
+									))}
+						</Card>
+						: null}
+				</div>
 			</div>
 		</>
 	);

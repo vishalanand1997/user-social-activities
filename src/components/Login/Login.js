@@ -19,7 +19,6 @@ export default function Login() {
     });
 
     const LoginTheAccount = (val) => {
-        console.log("Checking", selector.some((values) => values.email == val.email && values.password == val.password));
         if (selector.some((values) => values.email == val.email && values.password == val.password)) {
             console.log("Token", token());
             const specificDetail = selector.filter((detail) => detail.email == val.email)

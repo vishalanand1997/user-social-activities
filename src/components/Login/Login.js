@@ -10,19 +10,33 @@ import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from 'react-router-dom';
 export default function Login() {
     const history = useHistory();
-    const selector = useSelector(state => state)
-    console.log("Satteee", selector.LoginChanger);
+    const selector = useSelector(state => state.LoginChanger.userList)
+    console.log("Satteee", selector);
+
     const SignInSchema = Yup.object().shape({
         email: Yup.string().required('Email should not be empty'),
         password: Yup.string().min(6, 'Min. length of password is 6').max(12, 'Max. length of password is 12').required('Email should not be empty'),
     });
+
     const LoginTheAccount = (val) => {
-        if (selector.LoginChanger.every((values) => values.email == val.email && values.password == val.password)) {
+        console.log("Checking", selector.some((values) => values.email == val.email && values.password == val.password));
+        if (selector.some((values) => values.email == val.email && values.password == val.password)) {
+            console.log("Token", token());
+            const specificDetail = selector.filter((detail) => detail.email == val.email)
+            localStorage.setItem('userDetails', JSON.stringify(...specificDetail));
+            localStorage.setItem('sessionToken', token())
             history.push("/news")
         } else {
             toast.error('Email or password is incorrect', { autoClose: 2000 })
         }
     }
+    var rand = function () {
+        return Math.random().toString(36).substr(2); // remove `0.`
+    };
+
+    var token = function () {
+        return rand() + rand(); // to make it longer
+    };
     return (
         <Row className='m-0 p-0' style={{ height: "100vh", backgroundColor: "#F8F8F8" }}>
             <Col md="8" lg="8" sm="12" className="m-auto d-flex justify-content-center">

@@ -4,7 +4,10 @@ import { SignupImg } from "../../assets/index"
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
+import { SignUpFunc } from '../../redux/actions';
 export default function Login() {
+    const dispatch = useDispatch()
     const SignInSchema = Yup.object().shape({
         fname: Yup.string().required('First name should not be empty'),
         lname: Yup.string().required('Last name should not be empty'),
@@ -13,6 +16,13 @@ export default function Login() {
         passwordConfirmation: Yup.string()
             .oneOf([Yup.ref('password'), null], 'Passwords must match')
     });
+    const SignupHandle = (val) => {
+        dispatch(SignUpFunc(val))
+        const selector = useSelector(state => state.LoginChanger)
+        setInterval(() => {
+            console.log("State after selectorn", selector);
+        }, 5000)
+    }
     return (
         <Row className='m-0 p-0' style={{ height: "100vh", backgroundColor: "#F8F8F8" }}>
             <Col md="6" lg="6" sm="12" style={{ backgroundColor: "white" }} className='d-flex align-items-center'>
@@ -30,6 +40,7 @@ export default function Login() {
                         }}
                         validationSchema={SignInSchema}
                         onSubmit={values => {
+                            SignupHandle(values)
                             console.log("Values", values);
                         }}
                     >

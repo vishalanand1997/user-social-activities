@@ -1,9 +1,12 @@
-export const SignUp = () => {
+export const SignUpFunc = (data) => {
+    console.log("Dtaaaa1", data);
     return {
-        type: "SIGNUP"
+        type: "SIGNUP",
+        payload: data
     }
 }
-export const Login = () => {
+export const Login = (data) => {
+    console.log("Dtaaaa", data);
     return {
         type: "LOGIN"
     }

@@ -4,7 +4,7 @@ import { SignupImg } from "../../assets/index"
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { SignUpFunc } from '../../redux/actions';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
@@ -42,7 +42,6 @@ export default function Login() {
                         validationSchema={SignInSchema}
                         onSubmit={values => {
                             SignupHandle(values)
-                            console.log("Values", values);
                         }}
                     >
                         {({ errors, touched }) => (

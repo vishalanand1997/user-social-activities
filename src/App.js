@@ -1,19 +1,16 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route
+  Switch
 } from "react-router-dom";
 import Login from "./components/Login/Login";
 import News from "./components/News/News";
 import SignUp from "./components/Signup/SignUp";
 import SpecificNews from "./components/SpecificNews/SpecificNews";
-import { store } from "./store";
 import 'react-toastify/dist/ReactToastify.css';
 import PublicRoute from "./router/PublicRoute";
 import PrivateRoute from "./router/PrivateRoute";
 export default function App() {
-  console.log("Store", store.getState());
   return (
 		<Router>
 			<Switch>

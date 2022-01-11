@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import news from '../../news.json';
-import { Row, Col, Card, CardBody, CardImg, Carousel, CarouselIndicators, CarouselItem, CarouselCaption } from 'reactstrap';
+import { Row, Col, Card, CardBody, Carousel, CarouselIndicators, CarouselItem, CarouselCaption } from 'reactstrap';
 import { BsFillPersonFill, BsCalendarEvent } from 'react-icons/bs';
 import Nav from '../Nav/Nav';
 export default function SpecificNews() {
@@ -14,7 +14,7 @@ export default function SpecificNews() {
 	const [animating, setAnimating] = useState(false);
 
 	useEffect(() => {
-		setSpecificNews(news.filter((items, index) => items.id == parms?.id));
+		setSpecificNews(news.filter((items, index) => items.id === parms?.id));
 	}, [parms?.id]);
 
 	const itemLength = specificNews[0]?.images?.length - 1;
@@ -40,8 +40,8 @@ export default function SpecificNews() {
 				onExited={() => setAnimating(false)}
 				onExiting={() => setAnimating(true)}
 			>
-				<img src={item.src} alt={item?.altText} width="100%" height={400}/>
-				<CarouselCaption captionHeader={specificNews[0]?.title}/>
+				<img src={item.src} alt={item?.altText} width="100%" height={400} />
+				<CarouselCaption captionHeader={specificNews[0]?.title} />
 			</CarouselItem>
 		);
 	});

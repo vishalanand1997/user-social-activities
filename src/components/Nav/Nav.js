@@ -19,13 +19,6 @@ const Nav = () => {
 		<>
 			<div className="container-fluid">
 				<nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3  bg-white ">
-					{/* <a class="navbar-brand" href="">
-						<img
-							src=""
-							alt="News"
-							class="coco mr-5"
-						/>
-					</a> */}
 					<button
 						className="navbar-toggler"
 						type="button"
@@ -41,7 +34,7 @@ const Nav = () => {
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto flex-grow-2">
 							<li className="nav-item ">
-								<a className="nav-link mr-2" href="#">
+								<a className="nav-link mr-2" href="/news">
 									Feed
 								</a>
 							</li>
@@ -65,9 +58,9 @@ const Nav = () => {
 								}}
 							>
 								<DropdownToggle caret>
-										{JSON.parse(localStorage.getItem('userDetails')).fname}{' '}
-										{JSON.parse(localStorage.getItem('userDetails')).lname}
-										<FaRegUserCircle size={'2em'} style={{paddingLeft: '10px'}}/>
+									{JSON.parse(localStorage.getItem('userDetails')).fname}{' '}
+									{JSON.parse(localStorage.getItem('userDetails')).lname}
+									<FaRegUserCircle size={'2em'} style={{ paddingLeft: '10px' }} />
 								</DropdownToggle>
 								<DropdownMenu className="mt-2">
 									<DropdownItem
@@ -94,7 +87,6 @@ const Nav = () => {
 										query.length &&
 										post.title.toLowerCase().includes(query.toLowerCase())
 									) {
-										console.log('Posts', post);
 										return post;
 									}
 								})

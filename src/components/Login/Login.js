@@ -11,7 +11,6 @@ import { useHistory } from 'react-router-dom';
 export default function Login() {
     const history = useHistory();
     const selector = useSelector(state => state.LoginChanger.userList)
-    console.log("Satteee", selector);
 
     const SignInSchema = Yup.object().shape({
         email: Yup.string().required('Email should not be empty'),
@@ -19,9 +18,8 @@ export default function Login() {
     });
 
     const LoginTheAccount = (val) => {
-        if (selector.some((values) => values.email == val.email && values.password == val.password)) {
-            console.log("Token", token());
-            const specificDetail = selector.filter((detail) => detail.email == val.email)
+        if (selector.some((values) => values.email === val.email && values.password === val.password)) {
+            const specificDetail = selector.filter((detail) => detail.email === val.email)
             localStorage.setItem('userDetails', JSON.stringify(...specificDetail));
             localStorage.setItem('sessionToken', token())
             history.push("/news")

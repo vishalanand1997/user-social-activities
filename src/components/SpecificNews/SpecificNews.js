@@ -54,7 +54,7 @@ export default function SpecificNews() {
 					{specificNews?.map((item, index) => (
 						<Card key={item.id} className="card-posts">
 							<CardBody>
-								<h5>{item.title}</h5>
+								{/* <h5>{item.title}</h5> */}
 								{item.images && (
 									<Carousel previous={previousButton} next={nextButton} activeIndex={activeIndex}>
 										<CarouselIndicators

@@ -12,6 +12,8 @@ const Nav = () => {
 	const specificNews = (id) => {
 		console.log('ID', id);
 		history.push(`/specificNews/${id}`);
+		setQuery('')
+		document.getElementById('search_query').value = ""
 	};
 
 	return (
@@ -55,6 +57,7 @@ const Nav = () => {
 								type="text"
 								className="form-control"
 								placeholder="Search for user and email"
+								id="search_query"
 								onChange={(event) => setQuery(event.target.value)}
 							/>
 						</div>

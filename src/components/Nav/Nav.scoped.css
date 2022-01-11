@@ -21,8 +21,7 @@
 
 
 .has-search .form-control {
-    align-self: center;
-	width: 60%;
+	width: 50%;
 }
 
 .has-search .form-control-feedback {
@@ -35,7 +34,6 @@
     text-align: center;
     pointer-events: none;
     color: #aaa;
-
 }
 
 input[type="text"] {

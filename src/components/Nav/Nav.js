@@ -14,16 +14,6 @@ const Nav = () => {
 		history.push(`/specificNews/${id}`);
 	};
 
-	//   news.filter((post) => {
-	// 		if (query === '') {
-	// 			//if query is empty
-	// 			return post;
-	// 		} else if (post.title.toLowerCase().includes(query.toLowerCase())) {
-	// 			//returns filtered array
-	// 			return post;
-	// 		}
-	// 	});
-
 	return (
 		<>
 			<div class="container-fluid">
@@ -47,21 +37,25 @@ const Nav = () => {
 						<span class="navbar-toggler-icon" />
 					</button>
 
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav mr-auto flex-grow-1">
+					<div
+						class="collapse navbar-collapse"
+						id="navbarSupportedContent"
+						style={{ backgroundColor: 'red' }}
+					>
+						<ul class="navbar-nav mr-auto flex-grow-2">
 							<li class="nav-item ">
-								<a class="nav-link mr-2" href="#">
+								{/* <a class="nav-link mr-2" href="#">
 									News
-								</a>
+								</a> */}
 							</li>
 						</ul>
 
-						<div class="form-group has-search flex-grow-1">
+						<div class="form-group has-search flex-grow-1" style={{ paddingLeft: '30%' }}>
 							<span class="fa fa-search form-control-feedback" />
 							<input
 								type="text"
 								class="form-control"
-								placeholder="Search for news and more"
+								placeholder="Search for Users and Email"
 								onChange={(event) => setQuery(event.target.value)}
 							/>
 							{query &&
@@ -88,17 +82,6 @@ const Nav = () => {
 										>
 											<CardBody>
 												<h5>{post.title}</h5>
-												{/* <p>{post.body}</p> */}
-												{/* <div className="m-0 d-flex justify-content-between">
-									<div>
-										<BsCalendarEvent size={18} />
-										<span style={{ marginLeft: '5px' }}>11 Jan 2022</span>
-									</div>
-									<div>
-										<BsFillPersonFill size={18} />
-										<span style={{ marginLeft: '5px' }}>Jonas</span>
-									</div>
-								</div> */}
 											</CardBody>
 										</Card>
 									))}

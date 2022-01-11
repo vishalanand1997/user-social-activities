@@ -15,9 +15,9 @@ const Nav = () => {
 	};
 
 	return (
-		<>	
-			<div class="container-fluid">
-				<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3  bg-white ">
+		<>
+			<div className="container-fluid">
+				<nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3  bg-white ">
 					{/* <a class="navbar-brand" href="">
 						<img
 							src=""
@@ -26,7 +26,7 @@ const Nav = () => {
 						/>
 					</a> */}
 					<button
-						class="navbar-toggler"
+						className="navbar-toggler"
 						type="button"
 						data-toggle="collapse"
 						data-target="#navbarSupportedContent"
@@ -34,59 +34,64 @@ const Nav = () => {
 						aria-expanded="false"
 						aria-label="Toggle navigation"
 					>
-						<span class="navbar-toggler-icon" />
+						<span className="navbar-toggler-icon" />
 					</button>
 
 					<div
-						class="collapse navbar-collapse"
+						className="collapse navbar-collapse"
 						id="navbarSupportedContent"
 					>
-						<ul class="navbar-nav mr-auto flex-grow-2">
-							<li class="nav-item ">
-								<a class="nav-link mr-2" href="#">
+						<ul className="navbar-nav mr-auto flex-grow-2">
+							<li className="nav-item ">
+								<a className="nav-link mr-2" href="#">
 									Feed
 								</a>
 							</li>
 						</ul>
 
-						<div class="form-group has-search flex-grow-1" style={{ paddingLeft: '30%' }}>
-							<span class="fa fa-search form-control-feedback" />
+						<div className="form-group has-search flex-grow-1" style={{ paddingLeft: '30%' }}>
+							<span className="fa fa-search form-control-feedback" />
 							<input
 								type="text"
-								class="form-control"
+								className="form-control"
 								placeholder="Search for user and email"
 								onChange={(event) => setQuery(event.target.value)}
 							/>
-							{query &&
-								news
-									.filter((post) => {
-										if (query === '') {
-											return post;
-										} else if (
-											query.length &&
-											post.title.toLowerCase().includes(query.toLowerCase())
-										) {
-											return post;
-										}
-									})
-									.slice(0, 5)
-									.map((post, index) => (
-										<Card
-											key={post.id}
-											className="box"
-											style={{ cursor: 'pointer' }}
-											onClick={() => {
-												specificNews(post.id);
-											}}
-										>
-											<CardBody>
-												<h5>{post.title}</h5>
-											</CardBody>
-										</Card>
-									))}
 						</div>
 					</div>
 				</nav>
+				<div className='d-flex justify-content-center'>
+				{query.length > 0 ?
+					<Card className='suggestions-news'>
+						{
+							news.filter((post) => {
+								if (query === '') {
+									return post;
+								} else if (
+									query.length &&
+									post.title.toLowerCase().includes(query.toLowerCase())
+								) {
+									console.log("Posts",post);
+									return post;
+								}
+							})
+								.slice(0, 5)
+								.map((post, index) => (
+									<div
+										key={post.id}
+										style={{ cursor: 'pointer' }}
+										onClick={() => {
+											specificNews(post.id);
+										}}
+									>
+										<div>
+											<p>{post.title}</p>
+										</div>
+									</div>
+								))}
+					</Card>
+					: null}
+					</div>
 			</div>
 		</>
 	);

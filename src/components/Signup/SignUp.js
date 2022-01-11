@@ -47,7 +47,6 @@ export default function Login() {
                                             <Field
                                                 name="fname"
                                                 placeholder="First name"
-                                                type="text"
                                                 className="form-control"
                                                 style={errors.fname ? { border: '1px solid red' } : {}}
                                             />
@@ -64,7 +63,6 @@ export default function Login() {
                                             <Field
                                                 name="lname"
                                                 placeholder="Last name"
-                                                type="text"
                                                 className="form-control"
                                                 style={errors.lname ? { border: '1px solid red' } : {}}
                                             />

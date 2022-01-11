@@ -40,7 +40,7 @@ export default function SpecificNews() {
 				onExited={() => setAnimating(false)}
 				onExiting={() => setAnimating(true)}
 			>
-				<img src={item.src} alt={item?.altText} />
+				<img src={item.src} alt={item?.altText} width="100%" height={400}/>
 				<CarouselCaption captionHeader={specificNews[0]?.title}/>
 			</CarouselItem>
 		);

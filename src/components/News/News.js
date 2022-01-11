@@ -9,7 +9,6 @@ import { BsFillPersonFill, BsCalendarEvent } from 'react-icons/bs';
 import { useHistory } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 export default function News() {
-	console.log('news', news);
 	const history = useHistory();
 	const [newsList, setNewsList] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
@@ -90,7 +89,7 @@ export default function News() {
 						>
 							<CardBody>
 								<h5>{item.title}</h5>
-								<p>{item.body}</p>
+								<p>{item.body.substr(0,170)} ...</p>
 								<div className="m-0 d-flex justify-content-between">
 									<div>
 										<BsCalendarEvent size={18} />

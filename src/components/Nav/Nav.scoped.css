@@ -1,15 +1,15 @@
 @media (min-width: 1200px) {
-    .container{
+    .container {
         max-width: 1400px;
     }
 }
 
-.coco{
+.coco {
     width: 60px;
     /*border: 1px solid blue;*/
 }
 
-.nav-item{
+.nav-item {
     font-weight: bold;
     color: black;
 }
@@ -21,7 +21,7 @@
 
 
 .has-search .form-control {
-	width: 50%;
+    width: 50%;
 }
 
 .has-search .form-control-feedback {
@@ -38,14 +38,20 @@
 
 input[type="text"] {
     outline: none;
-    box-shadow:none !important;
-    border:1px solid #ccc !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
 }
+
 .box {
-  text-align: left;
-  border: black ridge 1px;
-  border-radius: 10px;
-  margin: 3px;
-  width: 20rem;
-  padding-left: 10px;
+    text-align: left;
+    border: black ridge 1px;
+    border-radius: 10px;
+    margin: 3px;
+    width: 20rem;
+    padding-left: 10px;
+}
+
+.suggestions-news {
+    position: absolute !important;
+    z-index: 100;
 }

@@ -15,7 +15,7 @@ const Nav = () => {
 	};
 
 	return (
-		<>
+		<>	
 			<div class="container-fluid">
 				<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3  bg-white ">
 					{/* <a class="navbar-brand" href="">

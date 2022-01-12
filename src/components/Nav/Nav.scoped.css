@@ -21,7 +21,19 @@
 
 
 .has-search .form-control {
-    width: 50%;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .has-search .form-control {
+        width: 50%;
+    }
+}
+
+@media (max-width:768px) {
+    .has-search {
+        padding: 0 !important;
+    }
 }
 
 .has-search .form-control-feedback {
@@ -57,10 +69,11 @@ input[type="text"] {
 }
 
 .dropdown__style {
-    background: none!important;
-    border: none!important;
-    color: #4F4F4F!important;
+    background: none !important;
+    border: none !important;
+    color: #4F4F4F !important;
 }
-.dropdown__style:focus{
-    box-shadow: none!important;
+
+.dropdown__style:focus {
+    box-shadow: none !important;
 }

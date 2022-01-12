@@ -55,3 +55,12 @@ input[type="text"] {
     position: absolute !important;
     z-index: 100;
 }
+
+.dropdown__style {
+    background: none!important;
+    border: none!important;
+    color: #4F4F4F!important;
+}
+.dropdown__style:focus{
+    box-shadow: none!important;
+}

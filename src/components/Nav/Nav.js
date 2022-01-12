@@ -57,7 +57,7 @@ const Nav = () => {
 									setDropdown(!dropDownOpen);
 								}}
 							>
-								<DropdownToggle caret>
+								<DropdownToggle caret className='dropdown__style'>
 									{JSON.parse(localStorage.getItem('userDetails')).fname}{' '}
 									{JSON.parse(localStorage.getItem('userDetails')).lname}
 									<FaRegUserCircle size={'2em'} style={{ paddingLeft: '10px' }} />
@@ -68,6 +68,7 @@ const Nav = () => {
 											localStorage.clear();
 											history.push('/');
 										}}
+
 									>
 										Logout
 									</DropdownItem>

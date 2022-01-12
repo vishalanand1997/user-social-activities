@@ -1,0 +1,10 @@
+@media (max-width: 768px) {
+    .image__section{
+        display: none!important;
+    }
+  }
+
+  .image__section{
+      display: flex;
+      justify-content: center;
+  }

@@ -48,6 +48,7 @@ const Nav = () => {
 								placeholder="Search for user and email"
 								id="search_query"
 								onChange={(event) => setQuery(event.target.value)}
+								autoComplete='off'
 							/>
 						</div>
 						<div className="d-flex justify-content-center">

@@ -39,7 +39,6 @@ export default function News() {
 		);
 	};
 	const handlePagination = (page) => {
-		console.log('Page0', page);
 		setCurrentPage(page.selected);
 		const newOffset = (page.selected * 10) % news.length;
 		setItemOffset(newOffset);
@@ -70,7 +69,6 @@ export default function News() {
 		/>
 	);
 	const specificNews = (id) => {
-		console.log('ID', id);
 		history.push(`/specificNews/${id}`);
 	};
 	return (

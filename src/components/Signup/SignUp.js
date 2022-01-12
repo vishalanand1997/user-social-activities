@@ -168,7 +168,7 @@ export default function Login() {
                     <div className='text-left mt-2'>Have Account? <Link to="/"> Login</Link></div>
                 </div>
             </Col>
-            <Col md="6" lg="6" sm="12" className="m-auto d-flex justify-content-center">
+            <Col md="6" lg="6" sm="12" className="m-auto image__section">
                 <img src={SignupImg} alt="SignUpImage" height={500} width={690} className="img-responsive center-block" />
             </Col>
         </Row>

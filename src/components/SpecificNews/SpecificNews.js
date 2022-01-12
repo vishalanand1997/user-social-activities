@@ -14,7 +14,7 @@ export default function SpecificNews() {
 	const [animating, setAnimating] = useState(false);
 
 	useEffect(() => {
-		setSpecificNews(news.filter((items, index) => items.id === parms?.id));
+		setSpecificNews(news.filter((items, index) => items.id == parms?.id));
 	}, [parms?.id]);
 
 	const itemLength = specificNews[0]?.images?.length - 1;

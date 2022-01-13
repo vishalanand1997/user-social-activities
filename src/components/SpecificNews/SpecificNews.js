@@ -41,7 +41,7 @@ export default function SpecificNews() {
 				onExiting={() => setAnimating(true)}
 			>
 				<img src={item.src} alt={item?.altText} width="100%" height={400} />
-				<CarouselCaption captionHeader={specificNews[0]?.title} />
+				<CarouselCaption captionHeader={specificNews[0]?.title} captionText={''}/>
 			</CarouselItem>
 		);
 	});

@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
-	Card, Dropdown, Collapse,
+	Card,
+	Dropdown,
+	Collapse,
 	Navbar,
 	NavbarToggler,
 	NavbarBrand,
 	Nav,
 	NavItem,
-	NavLink,
-	UncontrolledDropdown,
 	DropdownToggle,
 	DropdownMenu,
-	Input,
-	DropdownItem,
-	Row,
-	Col
+	DropdownItem
 } from 'reactstrap';
 import { FaRegUserCircle } from 'react-icons/fa';
 import news from '../../news.json';
@@ -23,28 +20,33 @@ import './Nav.scoped.css';
 const NavBar = () => {
 	const [query, setQuery] = useState('');
 	const history = useHistory();
-	const [dropDownOpen, setDropdown] = useState(false)
+	const [dropDownOpen, setDropdown] = useState(false);
 	const specificNews = (id) => {
 		history.push(`/specificNews/${id}`);
-		setQuery('')
-		document.getElementById('search_query').value = ""
+		setQuery('');
+		document.getElementById('search_query').value = '';
 	};
-	const [isOpen, setIsOpen] = useState(false)
+	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => {
-		setIsOpen(!isOpen)
-	}
+		setIsOpen(!isOpen);
+	};
 	return (
 		<>
 			<div className="container-fluid">
 				<div>
 					<Navbar color="faded" light>
-						<NavbarBrand href="/news" className="mr-auto">Feed</NavbarBrand>
+						<NavbarBrand href="/news" className="mr-auto">
+							Feed
+						</NavbarBrand>
 						<NavbarToggler onClick={toggle} className="mr-2" />
 						<Collapse isOpen={isOpen} navbar>
 							<Nav navbar>
 								<div className="d-flex justify-content-between">
-									<NavItem style={{ width: "100%" }}>
-										<div className="form-group has-search flex-grow-1" style={{ paddingLeft: '45%', width: "100%" }}>
+									<NavItem style={{ width: '100%' }}>
+										<div
+											className="form-group has-search flex-grow-1"
+											style={{ paddingLeft: '45%', width: '100%' }}
+										>
 											<span className="fa fa-search form-control-feedback" />
 											<input
 												type="text"
@@ -52,7 +54,7 @@ const NavBar = () => {
 												placeholder="Search for user and email"
 												id="search_query"
 												onChange={(event) => setQuery(event.target.value)}
-												autoComplete='off'
+												autoComplete="off"
 											/>
 										</div>
 									</NavItem>
@@ -63,7 +65,7 @@ const NavBar = () => {
 												setDropdown(!dropDownOpen);
 											}}
 										>
-											<DropdownToggle caret className='dropdown__style'>
+											<DropdownToggle caret className="dropdown__style">
 												{JSON.parse(localStorage.getItem('userDetails')).fname}{' '}
 												{JSON.parse(localStorage.getItem('userDetails')).lname}
 												<FaRegUserCircle size={'2em'} style={{ paddingLeft: '10px' }} />
@@ -74,7 +76,6 @@ const NavBar = () => {
 														localStorage.clear();
 														history.push('/');
 													}}
-
 												>
 													Logout
 												</DropdownItem>
@@ -93,10 +94,7 @@ const NavBar = () => {
 								.filter((post) => {
 									if (query === '') {
 										return post;
-									} else if (
-										query.length &&
-										post.title.toLowerCase().includes(query.toLowerCase())
-									) {
+									} else if (query.length && post.title.toLowerCase().includes(query.toLowerCase())) {
 										return post;
 									}
 								})
